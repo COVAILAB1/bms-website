@@ -32,3 +32,20 @@ export const createBMS = async (req, res, next) => {
     next(e);
   }
 };
+
+export const getData = async (req, res, next) => {
+  try {
+    const mongoData = await Dashboard.find();
+    // if (mongoData.data.length() == 0)
+    //   throw new Error("No Data present in Database");
+
+    res.json({
+      success: true,
+      status: 200,
+      data: mongoData,
+      message: "data fetched successfully",
+    })
+  } catch (err) {
+    next(err);
+  }
+};
