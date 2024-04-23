@@ -6,6 +6,7 @@ import Calculations from "../pages/Calculations/Calculations.jsx";
 import { Provider } from "react-redux";
 import appStore from "../redux/appStore.js";
 import Error from "./Components/Error/Error.jsx";
+import Overall from "../pages/Overall/Overall.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const appRouter = createBrowserRouter([
         path: "/calculations",
         element: <Calculations />,
       },
+      {
+        path: "/overall",
+        element: <Overall />,
+      }
     ],
   },
 ]);

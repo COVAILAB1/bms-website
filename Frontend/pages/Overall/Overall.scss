@@ -1,0 +1,49 @@
+$primary-blue-1: #007fff;
+
+.overall-main {
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.overall {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.overall td,
+.overall th {
+  border: 1px solid white;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.overall tr:nth-child(even) {
+  background-color: #505050;
+}
+
+.overall tr:hover {
+  background-color: #505050;
+}
+
+.overall th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #303030;
+  color: white;
+}
+.overall-graph
+{
+    margin-top: 3rem;
+
+    tspan 
+    {
+        fill: white;
+    }
+    
+    h2 {
+        margin: 2rem 0;
+    }
+}
