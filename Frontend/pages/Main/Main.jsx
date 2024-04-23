@@ -4,9 +4,10 @@ import axios from "axios";
 import { setData } from "../../redux/dataSlice";
 import { useDispatch } from "react-redux";
 import { Gauge } from "@mui/x-charts/Gauge";
+import Loader from "../../src/Components/Loader/Loader";
 
 const Main = () => {
-  const [bmsData, setBmsData] = useState({});
+  const [bmsData, setBmsData] = useState();
   const dispatch = useDispatch();
 
   const getData = async () => {
@@ -15,27 +16,35 @@ const Main = () => {
         import.meta.env.VITE_BLYNK_TOKEN
       }`
     );
-    const mongoData = await axios.post("http://localhost:8080/api/create-bms-data", {
-      temperature: response.data.v1,
-      humidity: response.data.v2,
-      voltage: response.data.v3,
-      batteryPercentage: response.data.v4,
-    });
-    console.log(mongoData);
-    dispatch(setData(response.data));
-    setBmsData(response.data);
+    const mongoDataPost = await axios.post(
+      "http://localhost:8080/api/create-bms-data",
+      {
+        temperature: response.data.v1,
+        humidity: response.data.v2,
+        voltage: response.data.v3,
+        batteryPercentage: response.data.v4,
+      }
+    );
+    const mongoData = await axios.get("http://localhost:8080/api/getdata");
+    console.log(mongoData.data.data[mongoData.data.data.length - 1]);
+    dispatch(setData(mongoData.data.data));
+    setBmsData(mongoData.data.data[mongoData.data.data.length - 1]);
   };
+
   useEffect(() => {
     getData();
   }, []);
 
+  console.log("bms", bmsData);
+
+  if(!bmsData) return <Loader />
   return (
     <div className="main">
       <h1>Overview</h1>
       <div className="main-gauges">
         <div className="gauge">
           <Gauge
-            value={bmsData.v1}
+            value={bmsData.temperature}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -54,7 +63,7 @@ const Main = () => {
         </div>
         <div className="gauge">
           <Gauge
-            value={bmsData.v2}
+            value={bmsData.humidity}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -73,7 +82,7 @@ const Main = () => {
         </div>
         <div className="gauge">
           <Gauge
-            value={bmsData.v3}
+            value={bmsData.voltage}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -92,7 +101,7 @@ const Main = () => {
         </div>
         <div className="gauge">
           <Gauge
-            value={bmsData.v4}
+            value={bmsData.batteryPercentage}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
