@@ -1,6 +1,5 @@
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
-import Button from '@mui/material/Button';
 
 const Header = () => {
   return (
@@ -9,12 +8,12 @@ const Header = () => {
       <div className="header">
         <p className="title">BMS Dashboard</p>
         <nav>
-            <Button>
+            <p>
                 <NavLink to={"/"}>Home</NavLink>
-            </Button>
-            <Button>
+            </p>
+            <p>
                 <NavLink to={"/calculations"}>Calculations</NavLink>
-            </Button>
+            </p>
         </nav>
       </div>
     </div>
