@@ -1,10 +1,20 @@
 import "./Main.scss";
 import { Gauge } from "@mui/x-charts/Gauge";
 import { useSelector } from "react-redux";
+import { assessBatteryHealth } from "../../utils/constants";
+import { useState } from "react";
 
 const Main = () => {
   const bmsData = useSelector(
     (store) => store.bmsData.data[store.bmsData.data.length - 1]
+  );
+  const [batteryHealth, setBatteryHealth] = useState(
+    assessBatteryHealth(
+      bmsData.temperature,
+      bmsData.voltage,
+      bmsData.humidity,
+      300
+    )
   );
 
   return (
@@ -86,6 +96,36 @@ const Main = () => {
             }}
           />
           <p>Battery Percentage</p>
+        </div>
+      </div>
+      <div className="condition">
+        <h1>Battery Condition</h1>
+        <div className="condition-main">
+          <div>
+            <p>current battery health condition: </p>
+            <h3>{batteryHealth.healthStatus}</h3>
+            <p className="indicate" style={{ backgroundColor: batteryHealth.color }}></p>
+          </div>
+          <div>
+            <p>
+              suggestions: <span>{batteryHealth.suggestions}</span>
+            </p>
+          </div>
+          <div>
+          <h3>Recommendations</h3>
+            <p>
+              Temperature: <span>{batteryHealth.recommendations.temperature}</span>
+            </p>
+            <p>
+              Voltage: <span>{batteryHealth.recommendations.voltage}</span>
+            </p>
+            <p>
+              Humidity: <span>{batteryHealth.recommendations.humidity}</span>
+            </p>
+            <p>
+              Charge Cycles: <span>{batteryHealth.recommendations.chargeCycles}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

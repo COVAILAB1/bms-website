@@ -24,23 +24,20 @@ $primary-black-2: #404040;
 .header-temp {
   height: 68px;
 }
-nav 
-{
-    display: flex;
-    gap: 2rem;
+nav {
+  display: flex;
+  gap: 2rem;
 
-    a 
-    {
-        text-decoration: none;
-        font-size: 1.2rem;
+  a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    user-select: none;
 
-        &:hover 
-        {
-            color: $primary-blue-1;
-        }
+    &:hover {
+      color: $primary-blue-1;
     }
-    a.active 
-    {
-        color: $primary-blue-1;
-    }
+  }
+  a.active {
+    color: $primary-blue-1;
+  }
 }

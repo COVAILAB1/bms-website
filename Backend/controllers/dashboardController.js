@@ -10,6 +10,7 @@ export const createBMS = async (req, res, next) => {
       temperature,
       humidity,
       voltage,
+      batteryPercentage
     });
 
     if (mongoResults.length > 0) {
@@ -36,9 +37,6 @@ export const createBMS = async (req, res, next) => {
 export const getData = async (req, res, next) => {
   try {
     const mongoData = await Dashboard.find();
-    // if (mongoData.data.length() == 0)
-    //   throw new Error("No Data present in Database");
-
     res.json({
       success: true,
       status: 200,

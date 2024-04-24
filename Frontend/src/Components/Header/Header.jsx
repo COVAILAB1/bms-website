@@ -11,9 +11,9 @@ const Header = () => {
             <p>
                 <NavLink to={"/"}>Home</NavLink>
             </p>
-            <p>
+            {/* <p>
                 <NavLink to={"/calculations"}>Calculations</NavLink>
-            </p>
+            </p> */}
             <p>
                 <NavLink to={"/overall"}>Overall</NavLink>
             </p>

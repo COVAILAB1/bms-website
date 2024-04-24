@@ -2,40 +2,88 @@ $primary-blue-1: #007fff;
 $primary-blue-2: #0d1c2a;
 $primary-black-1: #202020;
 
-tspan, text 
-{
-    color:white !important;
-    fill: white;
+tspan,
+text {
+  color: white !important;
+  fill: white;
 }
-.main-gauges
-{
+.main-gauges {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 3rem;
+
+  .gauge {
+    margin-top: 1rem;
+    border: 1px solid #303030;
+    background-color: #303030;
+    border-radius: 10px;
+    height: 20rem;
+    width: 20rem;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    gap: 3rem;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-    .gauge 
-    {
-        margin-top: 1rem;
-        border:1px solid #303030;
-        background-color: #303030;
-        border-radius: 10px;
-        height: 20rem;
-        width: 20rem;
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+.main {
+  padding: 3rem 3rem;
+}
+.condition {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+
+  .condition-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #303030;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+
+    div {
+      &:nth-child(1) {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 1rem;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        gap: 1rem;
 
-        p 
-        {
-            font-size: 1.5rem;
+        p {
+          color: #bdbdbd;
         }
+      }
+      &:nth-child(2), &:nth-child(3) {
+        h3 {
+            margin: 1rem 0;
+        }
+        p {
+          color: #bdbdbd;
+          margin: 1rem 0;
+
+          span {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+
+    }
+    .indicate {
+      height: 1.2rem;
+      width: 1.2rem;
+      border: 1px solid white;
+      border-radius: 50%;
     }
 }
-.main 
-{
-    padding: 3rem 3rem;
 }
