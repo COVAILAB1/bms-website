@@ -63,6 +63,7 @@ const App = () => {
   }, []);
 
   console.log("bmsdata", bmsdata);
+  console.log("outlet" ,<Outlet />);
 
   return (
     <div className="app">
