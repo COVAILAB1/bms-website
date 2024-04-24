@@ -5,6 +5,7 @@ import { assessBatteryHealth } from "../../utils/constants";
 import { useState } from "react";
 
 const Main = () => {
+  console.log("main componenet loaded");
   const bmsData = useSelector(
     (store) => store.bmsData.data[store.bmsData.data.length - 1]
   );
