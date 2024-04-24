@@ -61,12 +61,13 @@ const App = () => {
   useEffect(() => {
     getData();
   }, []);
+  
+  console.log("bmsdata", bmsdata);
 
   return (
     <div className="app">
       <Header />
       {bmsdata ? <Outlet /> : <Loader />}
-      <h1>something</h1>
     </div>
   );
 };
