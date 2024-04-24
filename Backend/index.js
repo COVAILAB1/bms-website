@@ -6,9 +6,9 @@ import dashboardRouter from "./routers/dashboardRoute.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 
 const app = express();
-connectDB();
 dotenv.config();
-app.use(express.json());
+connectDB();
+app.use(express.json()); 
 app.use(cors());
 
 app.listen(process.env.PORT, () => {

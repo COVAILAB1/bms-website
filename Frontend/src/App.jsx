@@ -19,7 +19,7 @@ const App = () => {
       }`
     );
     const mongoDataPost = await axios.post(
-      "http://localhost:8080/api/create-bms-data",
+      "https://bms-website-server.onrender.com/api/create-bms-data",
       {
         temperature: response.data.v1,
         humidity: response.data.v2,
@@ -27,7 +27,7 @@ const App = () => {
         batteryPercentage: response.data.v4,
       }
     );
-    const mongoData = await axios.get("http://localhost:8080/api/getdata");
+    const mongoData = await axios.get("https://bms-website-server.onrender.com/api/getdata");
     dispatch(setData(mongoData.data.data));
     setBmsdata(mongoData.data.data);
     console.log(mongoData.data.data[mongoData.data.data.length - 1]);
@@ -46,13 +46,13 @@ const App = () => {
 
     console.log("template", templateParams);
     console.log("email js called");
-    const emailResponse = await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      templateParams,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    );
-    console.log(emailResponse);
+    // const emailResponse = await emailjs.send(
+    //   import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    //   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    //   templateParams,
+    //   import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    // );
+    // console.log(emailResponse);
   };
 
   useEffect(() => {
