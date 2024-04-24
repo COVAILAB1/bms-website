@@ -62,7 +62,8 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      {bmsdata ? <Outlet /> : <Loader />}
+      {/* {bmsdata ? <Outlet /> : <Loader />} */}
+      <Outlet />
     </div>
   );
 };
