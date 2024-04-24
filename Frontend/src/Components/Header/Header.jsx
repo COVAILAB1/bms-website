@@ -1,23 +1,52 @@
+import { useEffect, useState } from "react";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  const [menu, setMenu] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerHeight <= 700) {
+        setMenu(false);
+      } else {
+        setMenu(true);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, []);
+
   return (
     <div className="header-org">
-    <div className="header-temp"></div>
+      <div className="header-temp"></div>
       <div className="header">
         <p className="title">BMS Dashboard</p>
-        <nav>
+        <div>
+          <span
+            className="material-symbols-outlined menu"
+            onClick={() => setMenu(!menu)}
+          >
+            menu
+          </span>
+          <nav style={{ display: menu ? "flex" : "none" }}>
             <p>
-                <NavLink to={"/"}>Home</NavLink>
+              <NavLink to={"/"}>Home</NavLink>
             </p>
             {/* <p>
                 <NavLink to={"/calculations"}>Calculations</NavLink>
             </p> */}
             <p>
-                <NavLink to={"/overall"}>Overall</NavLink>
+              <NavLink to={"/overall"}>Overall</NavLink>
             </p>
-        </nav>
+          </nav>
+        </div>
       </div>
     </div>
   );

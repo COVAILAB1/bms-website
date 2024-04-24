@@ -41,3 +41,49 @@ nav {
     color: $primary-blue-1;
   }
 }
+.menu 
+{
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .header {
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+
+    div 
+    {
+      position: relative;
+    }
+
+  }
+  nav 
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // gap: 1rem;
+    position: absolute;
+    top: 150%;
+    right: -100%;
+    background-color: black;
+    width: 100vw;
+    padding: 1rem 0;
+    gap: 2rem;
+    // display: none;
+
+    a 
+    {
+      text-align: center;
+    }
+  }
+  .menu 
+  {
+    display: block;
+    font-size: 2rem;
+    user-select: none;
+    cursor: pointer;
+  }
+}
