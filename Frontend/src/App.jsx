@@ -64,6 +64,7 @@ const App = () => {
       <Header />
       {/* {bmsdata ? <Outlet /> : <Loader />} */}
       <Outlet />
+      <h1>something</h1>
     </div>
   );
 };
