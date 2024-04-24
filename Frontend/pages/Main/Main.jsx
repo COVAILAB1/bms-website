@@ -18,6 +18,7 @@ const Main = () => {
       300
     )
   );
+
  
   if(!bmsData) return <Loader />
   
