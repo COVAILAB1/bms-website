@@ -2,11 +2,16 @@ import { useSelector } from "react-redux";
 import "./Overall.scss";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { useState } from "react";
+import Loader from "../../src/Components/Loader/Loader";
 
 const Overall = () => {
   const data = useSelector((store) => store.bmsData.data);
+  
+  // const [graphdata, setGraphdata] = useState(data.slice(-10));
 
-  const [graphdata, setGraphdata] = useState(data.slice(-10));
+  console.log("data", data);
+  if(data == {}) return <Loader />
+
 
   return (
     <div className="overall-main">
@@ -35,7 +40,7 @@ const Overall = () => {
           xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
           series={[
             {
-              data: graphdata.map((data) => data.temperature),
+              data: data.map((data) => data.temperature),
             },
           ]}
           height={300}
@@ -47,7 +52,7 @@ const Overall = () => {
           xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
           series={[
             {
-              data: graphdata.map((data) => data.humidity),
+              data: data.map((data) => data.humidity),
             },
           ]}
           height={300}
@@ -59,7 +64,7 @@ const Overall = () => {
           xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
           series={[
             {
-              data: graphdata.map((data) => data.voltage),
+              data: data.map((data) => data.voltage),
             },
           ]}
           height={300}
@@ -71,7 +76,7 @@ const Overall = () => {
           xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
           series={[
             {
-              data: graphdata.map((data) => data.batteryPercentage),
+              data: data.map((data) => data.batteryPercentage),
             },
           ]}
           height={300}
