@@ -10,7 +10,7 @@ import emailjs from "@emailjs/browser";
 
 const App = () => {
   const dispatch = useDispatch();
-  const [bmsdata, setBmsdata] = useState();
+  const [bmsdata, setBmsdata] = useState([]);
 
   const getData = async () => {
     const response = await axios.get(
@@ -61,13 +61,13 @@ const App = () => {
   useEffect(() => {
     getData();
   }, []);
-  
+
   console.log("bmsdata", bmsdata);
 
   return (
     <div className="app">
       <Header />
-      {bmsdata ? <Outlet /> : <Loader />}
+      {bmsdata.length > 0 ? <Outlet /> : <Loader />}
     </div>
   );
 };
