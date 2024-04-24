@@ -62,11 +62,10 @@ const App = () => {
     getData();
   }, []);
 
-
   return (
     <div className="app">
       <Header />
-      <Outlet />
+      {bmsdata ? <Outlet /> : <Loader />}
     </div>
   );
 };
