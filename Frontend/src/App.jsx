@@ -67,8 +67,8 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      {/* {bmsdata.length > 0 ? <Outlet /> : <Loader />} */}
-      {bmsdata.length > 0 ? <h1>ok👍</h1> : <Loader />}
+      {bmsdata.length > 0 ? <Outlet /> : <Loader />}
+      {/* {bmsdata.length > 0 ? <h1>ok👍</h1> : <Loader />} */}
 
     </div>
   );

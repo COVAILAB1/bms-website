@@ -29,6 +29,9 @@ const appRouter = createBrowserRouter([
     ],
   },
 ]);
+
+console.log("appRouter", appRouter);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={appStore}>
     <RouterProvider router={appRouter} />
