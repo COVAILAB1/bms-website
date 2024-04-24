@@ -10,9 +10,9 @@ const Main = () => {
   );
   const [batteryHealth, setBatteryHealth] = useState(
     assessBatteryHealth(
-      bmsData.temperature,
-      bmsData.voltage,
-      bmsData.humidity,
+      bmsData?.temperature,
+      bmsData?.voltage,
+      bmsData?.humidity,
       300
     )
   );
@@ -23,7 +23,7 @@ const Main = () => {
       <div className="main-gauges">
         <div className="gauge">
           <Gauge
-            value={bmsData.temperature}
+            value={bmsData?.temperature}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -42,7 +42,7 @@ const Main = () => {
         </div>
         <div className="gauge">
           <Gauge
-            value={bmsData.humidity}
+            value={bmsData?.humidity}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -61,7 +61,7 @@ const Main = () => {
         </div>
         <div className="gauge">
           <Gauge
-            value={bmsData.voltage}
+            value={bmsData?.voltage}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -80,7 +80,7 @@ const Main = () => {
         </div>
         <div className="gauge">
           <Gauge
-            value={bmsData.batteryPercentage}
+            value={bmsData?.batteryPercentage}
             startAngle={0}
             endAngle={360}
             innerRadius="80%"
@@ -103,18 +103,22 @@ const Main = () => {
         <div className="condition-main">
           <div>
             <p>current battery health condition: </p>
-            <h3>{batteryHealth.healthStatus}</h3>
-            <p className="indicate" style={{ backgroundColor: batteryHealth.color }}></p>
+            <h3>{batteryHealth?.healthStatus}</h3>
+            <p
+              className="indicate"
+              style={{ backgroundColor: batteryHealth.color }}
+            ></p>
           </div>
           <div>
             <p>
-              suggestions: <span>{batteryHealth.suggestions}</span>
+              suggestions: <span>{batteryHealth?.suggestions}</span>
             </p>
           </div>
           <div>
-          <h3>Recommendations</h3>
+            <h3>Recommendations</h3>
             <p>
-              Temperature: <span>{batteryHealth.recommendations.temperature}</span>
+              Temperature:{" "}
+              <span>{batteryHealth.recommendations.temperature}</span>
             </p>
             <p>
               Voltage: <span>{batteryHealth.recommendations.voltage}</span>
@@ -123,7 +127,8 @@ const Main = () => {
               Humidity: <span>{batteryHealth.recommendations.humidity}</span>
             </p>
             <p>
-              Charge Cycles: <span>{batteryHealth.recommendations.chargeCycles}</span>
+              Charge Cycles:{" "}
+              <span>{batteryHealth.recommendations.chargeCycles}</span>
             </p>
           </div>
         </div>
