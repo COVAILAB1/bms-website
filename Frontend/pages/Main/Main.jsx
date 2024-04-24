@@ -3,6 +3,7 @@ import { Gauge } from "@mui/x-charts/Gauge";
 import { useSelector } from "react-redux";
 import { assessBatteryHealth } from "../../utils/constants";
 import { useState } from "react";
+import Loader from "../../src/Components/Loader/Loader";
 
 const Main = () => {
   console.log("main componenet loaded");
@@ -17,7 +18,9 @@ const Main = () => {
       300
     )
   );
-
+ 
+  if(!bmsData) return <Loader />
+  
   return (
     <div className="main">
       <h1>Overview</h1>
