@@ -6,7 +6,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setData } from "../redux/dataSlice.js";
 import Loader from "./Components/Loader/Loader";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 
 const App = () => {
   const dispatch = useDispatch();
