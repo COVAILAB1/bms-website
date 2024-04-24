@@ -18,6 +18,7 @@ const App = () => {
         import.meta.env.VITE_BLYNK_TOKEN
       }`
     );
+    console.log("response", response);
     const mongoDataPost = await axios.post(
       "https://bms-website-server.onrender.com/api/create-bms-data",
       {
@@ -27,7 +28,9 @@ const App = () => {
         batteryPercentage: response.data.v4,
       }
     );
-    const mongoData = await axios.get("https://bms-website-server.onrender.com/api/getdata");
+    const mongoData = await axios.get(
+      "https://bms-website-server.onrender.com/api/getdata"
+    );
     dispatch(setData(mongoData.data.data));
     setBmsdata(mongoData.data.data);
     console.log(mongoData.data.data[mongoData.data.data.length - 1]);
@@ -62,8 +65,7 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      {/* {bmsdata ? <Outlet /> : <Loader />} */}
-      <Outlet />
+      {bmsdata ? <Outlet /> : <Loader />}
       <h1>something</h1>
     </div>
   );
