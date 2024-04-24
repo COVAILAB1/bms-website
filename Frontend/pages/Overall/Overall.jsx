@@ -1,17 +1,15 @@
 import { useSelector } from "react-redux";
 import "./Overall.scss";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Loader from "../../src/Components/Loader/Loader";
 
-const Overall = () => { //change graphdata
+const Overall = () => { 
   const data = useSelector((store) => store.bmsData.data);
 
-  const [graphData, setGraphData] = useState([]);
+  let graphData = [];
 
-  if(!Object.keys(data).length === 0) {
-    setGraphData(data.slice(-10));
+  if(!(Object.keys(data).length === 0)) {
+    graphData = data.slice(-10);
   }
   // if (Object.keys(data).length === 0) {
   //   navigate("/");
