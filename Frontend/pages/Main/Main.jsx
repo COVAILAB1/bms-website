@@ -2,8 +2,10 @@ import "./Main.scss";
 import { Gauge } from "@mui/x-charts/Gauge";
 import { useSelector } from "react-redux";
 import { assessBatteryHealth } from "../../utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../src/Components/Loader/Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Main = () => {
   console.log("main componenet loaded");
@@ -19,14 +21,16 @@ const Main = () => {
     )
   );
 
- 
-  if(!bmsData) return <Loader />
-  
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  if (!bmsData) return <Loader />;
   return (
     <div className="main">
       <h1>Overview</h1>
       <div className="main-gauges">
-        <div className="gauge">
+        <div className="gauge" data-aos="fade-up" data-aos-duration="500">
           <Gauge
             value={bmsData?.temperature}
             startAngle={0}
@@ -45,7 +49,7 @@ const Main = () => {
           />
           <p>Temperature</p>
         </div>
-        <div className="gauge">
+        <div className="gauge" data-aos="fade-up" data-aos-duration="600">
           <Gauge
             value={bmsData?.humidity}
             startAngle={0}
@@ -64,7 +68,7 @@ const Main = () => {
           />
           <p>Humidity</p>
         </div>
-        <div className="gauge">
+        <div className="gauge" data-aos="fade-up" data-aos-duration="700">
           <Gauge
             value={bmsData?.voltage}
             startAngle={0}
@@ -83,7 +87,7 @@ const Main = () => {
           />
           <p>Battery Voltage</p>
         </div>
-        <div className="gauge">
+        <div className="gauge" data-aos="fade-up" data-aos-duration="800">
           <Gauge
             value={bmsData?.batteryPercentage}
             startAngle={0}
