@@ -3,6 +3,7 @@ import "./Header.scss";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { setData } from "../../../redux/dataSlice";
+import emailjs from "@emailjs/browser";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
