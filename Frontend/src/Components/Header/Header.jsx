@@ -82,25 +82,6 @@ const Header = () => {
       <div className="header-temp"></div>
       <div className="header">
         <p className="title">BMS Dashboard</p>
-        <div>
-          <span
-            className="material-symbols-outlined menu"
-            onClick={() => setMenu(!menu)}
-          >
-            menu
-          </span>
-          <nav style={{ display: menu ? "flex" : "none" }}>
-            <p>
-              <NavLink to={"/"}>Home</NavLink>
-            </p>
-            {/* <p>
-                <NavLink to={"/calculations"}>Calculations</NavLink>
-            </p> */}
-            <p>
-              <NavLink to={"/overall"}>Overall</NavLink>
-            </p>
-          </nav>
-        </div>
       </div>
     </div>
   );
