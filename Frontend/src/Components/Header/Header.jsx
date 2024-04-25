@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./Header.scss";
-import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { setData } from "../../../redux/dataSlice";

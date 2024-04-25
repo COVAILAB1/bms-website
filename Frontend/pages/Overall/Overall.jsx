@@ -17,7 +17,7 @@ const Overall = () => {
 
   // const [graphdata, setGraphdata] = useState(data.slice(-10))
 
-  if(Object.keys(data).length === 0) return <Loader />
+  if(Object.keys(data).length === 0) return <></>
 
   return (
     <div className="overall-main">
