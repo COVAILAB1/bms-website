@@ -47,7 +47,6 @@ $primary-blue-1: #007fff;
 }
 @media screen and (max-width: 700px) {
   .overall-main {
-    // margin: 0;
     align-items: center;
   }
   .overall td,
@@ -57,7 +56,7 @@ $primary-blue-1: #007fff;
     font-size: 1rem;
   }
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .overall-graph {
     margin: 0;
     width: 100%;
@@ -65,8 +64,7 @@ $primary-blue-1: #007fff;
     flex-direction: column;
     align-items: center;
 
-    div 
-    {
+    div {
       width: 100vw;
     }
   }
