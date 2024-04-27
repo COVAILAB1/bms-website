@@ -8,7 +8,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Main = () => {
-  console.log("main componenet loaded");
   const bmsData = useSelector(
     (store) => store.bmsData.data[store.bmsData.data.length - 1]
   );
