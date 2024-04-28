@@ -11,6 +11,7 @@ const Main = () => {
   const bmsData = useSelector(
     (store) => store.bmsData.data[store.bmsData.data.length - 1]
   );
+  
   const [batteryHealth, setBatteryHealth] = useState(
     assessBatteryHealth(
       bmsData?.temperature,
