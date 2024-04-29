@@ -57,8 +57,6 @@ const Header = () => {
     // console.log(emailResponse);
   };
 
-  console.log("blynk token", import.meta.env.VITE_BLYNK_TOKEN);
-
   useEffect(() => {
     getData();
 
