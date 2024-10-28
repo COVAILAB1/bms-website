@@ -11,7 +11,7 @@ const Main = () => {
   const [batteryHealth, setBatteryHealth] = useState(null);
 
   const fetchData = () => {
-    fetch("https://bms-backend-0ci9.onrender.com/data")
+    fetch("https://bms-backend-rbwe.onrender.com/data")
       .then((response) => response.json())
       .then((bmsData) => {
         setData(bmsData);
