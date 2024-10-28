@@ -19,7 +19,7 @@ const Header = () => {
     );
     console.log("response", response);
     const mongoDataPost = await axios.post(
-      "https://bms-website-server.onrender.com/api/create-bms-data",
+      "https://bms-backend-rbwe.onrender.com/data",
       {
         temperature: response.data.v1,
         humidity: response.data.v2,
@@ -29,7 +29,7 @@ const Header = () => {
     );
     console.log(mongoDataPost);
     const mongoData = await axios.get(
-      "https://bms-website-server.onrender.com/api/getdata"
+      "https://bms-backend-rbwe.onrender.com/data"
     );
     dispatch(setData(mongoData.data.data));
     console.log(mongoData.data.data[mongoData.data.data.length - 1]);

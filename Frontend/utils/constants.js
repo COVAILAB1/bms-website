@@ -34,8 +34,8 @@ export const assessBatteryHealth = (temperature, voltage, humidity, chargeCycles
         suggestions = "The battery is in good condition.";
         recommendations = {
             temperature: "Keep temperature below 50°C.",
-            voltage: "Monitor voltage within the range of 10-12 volts.",
-            humidity: "Maintain humidity levels between 0% and 100%.",
+            voltage: "Monitor voltage within the range of 40-50 volts.",
+            humidity: "Maintain humidity levels between 0% and 40%.",
             chargeCycles: "Limit charge cycles to 500."
         };
     } else if (healthScore >= 60) {

@@ -28,7 +28,15 @@ text {
     justify-content: center;
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+    .gauge-label {
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: 500;
+      color: white;
+    }
     p {
       font-size: 1.5rem;
     }
@@ -37,6 +45,63 @@ text {
 .main {
   padding: 3rem 3rem;
 }
+.condition1 {
+  width: 100%;
+  max-width: 1200px; /* Optional: limit max width */
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #303030;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffffff;
+  }
+
+  .condition-main1 {
+    display: flex;
+    flex-wrap: wrap; /* Ensures elements wrap to the next line */
+    justify-content: flex-start;
+    gap: 1rem; /* Adds space between elements */
+  }
+
+  .condition-main1 div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  p {
+    background-color: #3c3c3c;
+    color: #bdbdbd;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    width: calc(50% - 1rem); /* Adjust width to fit two items per row */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #454545;
+      transform: translateY(-3px); /* Add a subtle lift on hover */
+    }
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  /* When the screen width is below 768px, stack the paragraphs vertically */
+  @media (max-width: 768px) {
+    p {
+      width: 100%;
+    }
+  }
+}
+
 .condition {
   margin-top: 3rem;
   display: flex;
